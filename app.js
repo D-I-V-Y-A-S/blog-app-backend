@@ -10,6 +10,10 @@ app.use(cors())
 app.use(express.json())
 const blogRouter = require('./router/blogRouter')
 
+app.get('/',(req,res)=>{
+    res.status(200).send("Connection Sucessful!")
+})
+
 mongoose.connect(process.env.DB_URL)
 const db = mongoose.connection
 db.on('error', (errorMessage) => console.log(errorMessage))
